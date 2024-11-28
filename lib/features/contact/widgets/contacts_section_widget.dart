@@ -57,10 +57,10 @@ class ContactSectionWidget extends StatelessWidget {
                 value: _CellWidget(contact['name'], index),
               ),
               DataGridCell<Widget>(columnName: 'Mobile', value: _CellWidget(contact['mobile1'], index)),
-              DataGridCell<Widget>(columnName: 'Start Date', value: _buildDateChip("2022-20-2", Colors.red)),
-              DataGridCell<Widget>(columnName: 'End Date', value: _buildDateChip("2024-20-2", Colors.green)),
-              DataGridCell<Widget>(columnName: 'Current Status', value: _buildStatusChip(true)),
-              DataGridCell<Widget>(columnName: 'Block List', value: _buildStatusChip(false)),
+              DataGridCell<Widget>(columnName: 'Start Date', value: _CellWidget("", index)),
+              DataGridCell<Widget>(columnName: 'End Date', value: _CellWidget("", index)),
+              DataGridCell<Widget>(columnName: 'Current Status', value: _CellWidget("", index)),
+              DataGridCell<Widget>(columnName: 'Block List', value: _CellWidget("", index)),
               DataGridCell<Widget>(
                   columnName: '',
                   value: Container(
@@ -122,35 +122,4 @@ class _IconButtonWidget extends StatelessWidget {
       icon: SvgPicture.asset('assets/icons/$iconSvg'),
     );
   }
-}
-
-Widget _buildDateChip(String date, Color color) {
-  return Expanded(
-    flex: 1,
-    child: Container(
-      padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: TextWidget(date, color: kcWhite),
-    ),
-  );
-}
-
-Widget _buildStatusChip(bool status) {
-  return Expanded(
-    flex: 1,
-    child: Container(
-      padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-      decoration: BoxDecoration(
-        color: status ? kcGreen.withOpacity(0.37) :kcRed,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Icon(
-        status ? Icons.check : Icons.close,
-        color: Colors.white,
-      ),
-    ),
-  );
 }

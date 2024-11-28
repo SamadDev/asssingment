@@ -56,19 +56,16 @@ class _SfDataGridWidgetState extends State<SfDataGridWidget> {
                           Expanded(
                             child: Builder(builder: (context) {
                               double pageCountCalculate = (widget.count / _rowsPerPage).ceilToDouble();
-                              return Theme(
-                                data: ThemeData.dark(),
-                                child: SfDataPager(
-                                  firstPageItemVisible: false,
-                                  lastPageItemVisible: false,
-                                  itemHeight: 40,
-                                  navigationItemHeight: 40,
-                                  availableRowsPerPage: const <int>[1, 25, 50, 100],
-                                  delegate: widget.source,
-                                  pageCount: pageCountCalculate >= 1 ? pageCountCalculate : 1,
-                                  onRowsPerPageChanged: (int? rowsPerPage) => setState(
-                                    () => _rowsPerPage = rowsPerPage ?? 25,
-                                  ),
+                              return SfDataPager(
+                                firstPageItemVisible: false,
+                                lastPageItemVisible: false,
+                                itemHeight: 40,
+                                navigationItemHeight: 40,
+                                availableRowsPerPage: const <int>[1, 25, 50, 100],
+                                delegate: widget.source,
+                                pageCount: pageCountCalculate >= 1 ? pageCountCalculate : 1,
+                                onRowsPerPageChanged: (int? rowsPerPage) => setState(
+                                  () => _rowsPerPage = rowsPerPage ?? 25,
                                 ),
                               );
                             }),
